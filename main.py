@@ -7,6 +7,14 @@ import textwrap
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Hello, Flask is running on Render!"
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT dynamically
+    app.run(host='0.0.0.0', port=port)
+
 # Replace with your OpenAI API key
 openai.api_key = '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'
 

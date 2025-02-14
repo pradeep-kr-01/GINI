@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import json
 import openai
 import textwrap
+import os
 
 app = Flask(__name__)
 

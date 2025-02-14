@@ -9,7 +9,7 @@ import textwrap
 app = Flask(__name__)
 
 # Load OpenAI API key from environment variable (DO NOT HARDCODE IT!)
-openai.api_key = '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'
+openai.api_key = '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'
 
 def scrape_website(url):
     try:

@@ -1,14 +1,14 @@
+import os  # Import the os module
 from flask import Flask, render_template, request, jsonify
 import requests
 from bs4 import BeautifulSoup
 import json
 import openai
 import textwrap
-import os
 
 app = Flask(__name__)
 
-# Replace with your OpenAI API key
+# Load OpenAI API key from environment variable (DO NOT HARDCODE IT!)
 openai.api_key = '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'
 
 def scrape_website(url):
@@ -69,5 +69,8 @@ def generate_questions_from_url():
 
     return render_template('getstarted.html')
 
+# Run the Flask app on Render
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render assigns a dynamic port
+    app.run(host='0.0.0.0', port=port, debug=True)
+

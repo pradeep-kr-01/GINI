@@ -25,10 +25,12 @@ def generate_questions(content, num_questions=10, chunk_size=1500):
     questions = []
     chunks = textwrap.wrap(content, chunk_size)
 
+    client = openai.OpenAI()  # New OpenAI client
+
     for chunk in chunks:
         prompt = f"Generate {num_questions} concise questions (less than 80 characters) based on the following content:\n\n{chunk}"
 
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(  # Updated API call
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant."},
@@ -37,7 +39,7 @@ def generate_questions(content, num_questions=10, chunk_size=1500):
             max_tokens=150
         )
 
-        chunk_questions = response.choices[0].message['content'].strip().split('\n')
+        chunk_questions = response.choices[0].message.content.strip().split('\n')
         questions.extend([q for q in chunk_questions if q.strip() != ''])
 
         if len(questions) >= num_questions:

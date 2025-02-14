@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+       
+        <script type="text/javascript" src="{{ url_for('static', filename='style.js') }}"></script>
+    </head>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <title>GINI - Generative AI</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+
+<body>
+    <!-- Particle Background for Hero Section -->
+    <div id="particles-js"></div>
+
+    <header>
+        <div class="container header-container">
+            <img src="https://i.ibb.co/HGV164K/1-removebg-preview.png" alt=" alt="ALORA" class="logo">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+       <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <h1><span>GINI</span> - GENERATIVE AI</h1>
+        <p>Discover the future of AI with our cutting-edge tool</p>
+        <button class="btn" onclick="window.location.href='/getstarted'"><i class="fas fa-arrow-right"></i> Get Started</button>
+    </div>
+</section>
+
+
+       <!-- Features Section -->
+<section id="features" class="features section">
+    <div class="container">
+        <h2>Key Features</h2>
+        <div class="grid">
+            <div class="feature card">
+                <i class="fas fa-question-circle fa-3x"></i> <!-- Question Generation Icon -->
+                <h3>Question Generation</h3>
+                <p>Generate insightful questions with ease.</p>
+                <button class="btn"><i class="fas fa-edit"></i> Do it</button>
+            </div>
+            <div class="feature card">
+                <i class="fas fa-globe fa-3x"></i> <!-- Web Reading Icon -->
+                <h3>Web Reading</h3>
+                <p>Read and summarize web content efficiently.</p>
+                <button class="btn"><i class="fas fa-book-reader"></i> Do it</button>
+            </div>
+            <div class="feature card">
+                <i class="fas fa-list-alt fa-3x"></i> <!-- Topic Specifier Icon -->
+                <h3>Topic Specifier</h3>
+                <p>Specify and refine topics for better focus.</p>
+                <button class="btn"><i class="fas fa-tasks"></i> Do it</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing section">
+            <div class="container">
+                <h2>Pricing</h2>
+                <div class="plans grid">
+                    <div class="plan card">
+                        <h3>Free</h3>
+                        <p class="price">$0 / month</p>
+                        <ul>
+                            <li>Basic features</li>
+                            <li>Limited usage</li>
+                        </ul>
+                        <button class="btn"><i class="fas fa-lock"></i> Sign Up</button>
+                    </div>
+                    <div class="plan card">
+                        <h3>Pro</h3>
+                        <p class="price">$29 / month</p>
+                        <ul>
+                            <li>Advanced features</li>
+                            <li>Unlimited usage</li>
+                        </ul>
+                        <button class="btn"><i class="fas fa-lock"></i> Sign Up</button>
+                    </div>
+                    <div class="plan card">
+                        <h3>Enterprise</h3>
+                        <p class="price">Contact Us</p>
+                        <ul>
+                            <li>Custom features</li>
+                            <li>Dedicated support</li>
+                        </ul>
+                        <button class="btn"><i class="fas fa-phone"></i> Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you! Whether you have a question about features, pricing, or anything else, our team is ready to answer all your questions.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 GINI - All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links li a');
+
+            sections.forEach(section => {
+                const top = window.scrollY + 50;
+                const bottom = top + section.offsetHeight;
+                const id = section.getAttribute('id');
+
+                if (top >= section.offsetTop && top <= bottom) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Form Validation
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.querySelector('#name').value.trim();
+            const email = document.querySelector('#email').value.trim();
+            const message = document.querySelector('#message').value.trim();
+
+            if (name === '' || email === '' || message === '') {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            alert('Message sent successfully!');
+            form.reset();
+        });
+
+        // Email Validation Function
+        function validateEmail(email) {
+            const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Initialize Particle.js
+function initializeParticles() {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: window.innerWidth > 768 ? 80 : 40, // Adjust number of particles based on screen width
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: '#ffffff'
+            },
+            shape: {
+                type: 'circle',
+                stroke: {
+                    width: 0,
+                    color: '#000000'
+                },
+                polygon: {
+                    nb_sides: 5
+                }
+            },
+            opacity: {
+                value: 0.5,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 1,
+                    opacity_min: 0.1,
+                    sync: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: {
+                    enable: true,
+                    speed: 20,
+                    size_min: 0.1,
+                    sync: false
+                }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 6,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: {
+                    enable: false,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: 'grab'
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'push'
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 1
+                    }
+                },
+                bubble: {
+                    distance: 400,
+                    size: 40,
+                    duration: 2,
+                    opacity: 8,
+                    speed: 3
+                },
+                repulse: {
+                    distance: 200,
+                    duration: 0.4
+                },
+                push: {
+                    particles_nb: 4
+                },
+                remove: {
+                    particles_nb: 2
+                }
+            }
+        },
+        retina_detect: true
+    });
+}
+
+// Call the function to initialize particles
+initializeParticles();
+
+// Reinitialize particles on window resize
+window.addEventListener('resize', function() {
+    initializeParticles();
+});
+</script>
+</body>
+</html>
